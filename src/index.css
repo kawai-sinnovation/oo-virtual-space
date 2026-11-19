@@ -1,0 +1,200 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Zen Maru Gothic", "Hiragino Sans", "Yu Gothic", sans-serif;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #101218;
+  color: #f4efe6;
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: #ffb15a;
+  color: #24160d;
+}
+
+.base-floor {
+  background-color: #1b1714;
+  background-image:
+    radial-gradient(circle at 18% 12%, rgba(255, 176, 90, 0.1), transparent 26%),
+    radial-gradient(circle at 82% 78%, rgba(120, 160, 210, 0.09), transparent 30%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: auto, auto, 48px 48px, 48px 48px;
+}
+
+.arcade-floor {
+  background-color: #6f655c;
+  background-image:
+    linear-gradient(180deg, rgba(16, 18, 28, 0.34), transparent 24%),
+    repeating-linear-gradient(90deg, rgba(255, 248, 236, 0.16) 0 2px, transparent 2px 40px),
+    repeating-linear-gradient(rgba(48, 36, 28, 0.3) 0 2px, transparent 2px 40px);
+}
+
+.counter-floor {
+  background-color: #7a4e2c;
+  background-image:
+    linear-gradient(180deg, rgba(255, 220, 170, 0.18), transparent 32%),
+    repeating-linear-gradient(90deg, rgba(255, 232, 196, 0.16) 0 2px, transparent 2px 18px);
+}
+
+.work-floor {
+  background-color: #24303c;
+  background-image:
+    linear-gradient(180deg, rgba(150, 200, 230, 0.14), transparent 36%),
+    repeating-linear-gradient(0deg, transparent 0 18px, rgba(255, 255, 255, 0.04) 18px 19px);
+}
+
+.lounge-rug {
+  background-color: #6d3844;
+  background-image:
+    radial-gradient(circle at 50% 46%, rgba(255, 220, 196, 0.18), transparent 46%),
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.06) 0 10px, transparent 10px 20px);
+}
+
+.wood-face {
+  background: repeating-linear-gradient(90deg, #8a552c 0 7px, #c4894e 7px 12px, #6f431f 12px 18px);
+}
+
+.awning-stripes {
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.18) 0 8px,
+    transparent 8px 16px
+  );
+}
+
+.lamp-flicker {
+  animation: lamp-flicker 2.8s ease-in-out infinite;
+}
+
+.screen-glow {
+  animation: screen-glow 3.4s ease-in-out infinite;
+}
+
+.ping-ring {
+  animation: ping-ring 0.7s ease-out forwards;
+}
+
+.bubble-pop {
+  translate: -50% 0;
+  animation: bubble-pop 0.28s ease-out;
+}
+
+@keyframes lamp-flicker {
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+  45% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0.7;
+  }
+  72% {
+    opacity: 1;
+  }
+}
+
+@keyframes screen-glow {
+  0%,
+  100% {
+    opacity: 0.72;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes ping-ring {
+  from {
+    scale: 0.35;
+    opacity: 0.95;
+  }
+  to {
+    scale: 2.2;
+    opacity: 0;
+  }
+}
+
+@keyframes bubble-pop {
+  from {
+    opacity: 0;
+    translate: -50% 8px;
+  }
+  to {
+    opacity: 1;
+    translate: -50% 0;
+  }
+}
+
+@keyframes speak-ripple {
+  0% {
+    scale: 0.82;
+    opacity: 0.75;
+  }
+  100% {
+    scale: 1.7;
+    opacity: 0;
+  }
+}
+
+.speak-ripple {
+  animation: speak-ripple 1.35s ease-out infinite;
+}
+
+.speak-ripple-delay {
+  animation-delay: 0.45s;
+}
+
+@keyframes talk-aura {
+  0%,
+  100% {
+    opacity: 0.82;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.talk-aura {
+  animation: talk-aura 2.8s ease-in-out infinite;
+}
+
+@keyframes lantern-glow {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.lantern-glow {
+  animation: lantern-glow 3.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lamp-flicker,
+  .screen-glow,
+  .ping-ring,
+  .bubble-pop,
+  .speak-ripple,
+  .talk-aura,
+  .lantern-glow,
+  .travel-bot {
+    animation: none !important;
+    transition: none !important;
+  }
+}
